@@ -1,5 +1,5 @@
 <div class="outer">
-  <form class="example-form" [formGroup]="signUpForm">
+  <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="register()">
     <mat-form-field class="example-full-width">
       <mat-label>First Name</mat-label>
       <input type="text" matInput formControlName="fName">

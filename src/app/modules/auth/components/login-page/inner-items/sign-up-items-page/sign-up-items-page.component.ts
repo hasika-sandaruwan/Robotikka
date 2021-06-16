@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import UserDTO from "../../../../dto/UserDTO";
+import {UserService} from "../../../../services/user.service";
 
 @Component({
   selector: 'app-sign-up-items-page',
@@ -17,7 +18,7 @@ export class SignUpItemsPageComponent implements OnInit {
       Validators.maxLength(20)]),
   })
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -25,8 +26,8 @@ export class SignUpItemsPageComponent implements OnInit {
 
   register() {
 
-    const date =  new Date();
-    const time = date.getHours()+' : '+date.getMinutes()+' : '+date.getSeconds()
+    const date = new Date();
+    const time = date.getHours() + ' : ' + date.getMinutes() + ' : ' + date.getSeconds()
 
     const dto = new UserDTO(
       this.signUpForm.get('fName')?.value.toString().trim(),
@@ -38,6 +39,12 @@ export class SignUpItemsPageComponent implements OnInit {
       date,
       time
     );
-  }
 
+    this.userService.register(dto).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
+
+  }
 }
