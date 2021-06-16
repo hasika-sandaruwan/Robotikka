@@ -18,6 +18,8 @@ export class SignUpItemsPageComponent implements OnInit {
       Validators.maxLength(20)]),
   })
 
+  loading=false;
+
   constructor(private userService: UserService) {
   }
 
@@ -25,7 +27,7 @@ export class SignUpItemsPageComponent implements OnInit {
   }
 
   register() {
-
+    this.loading=true;
     const date = new Date();
     const time = date.getHours() + ' : ' + date.getMinutes() + ' : ' + date.getSeconds()
 
@@ -41,8 +43,10 @@ export class SignUpItemsPageComponent implements OnInit {
     );
 
     this.userService.register(dto).subscribe(response => {
+      this.loading=false;
       console.log(response);
     }, error => {
+      this.loading=false;
       console.log(error);
     })
 

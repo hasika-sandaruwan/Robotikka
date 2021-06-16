@@ -31,6 +31,7 @@
       </mat-error>
     </mat-form-field>
     <button [disabled]="signUpForm.invalid" mat-raised-button class="sign-in-button">Register</button>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   </form>
 
   <div class="button-wrap">
