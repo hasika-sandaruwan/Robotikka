@@ -6,6 +6,8 @@ import { AuthComponent } from './auth.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginItemsPageComponent } from './components/login-page/inner-items/login-items-page/login-items-page.component';
 import { SignUpItemsPageComponent } from './components/login-page/inner-items/sign-up-items-page/sign-up-items-page.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { SignUpItemsPageComponent } from './components/login-page/inner-items/si
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class AuthModule { }
