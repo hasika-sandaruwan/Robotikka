@@ -26,4 +26,10 @@ export class UserService {
     });
   }
 
+  public login(email: string, password: string): Observable<any>{
+    return this.http.get(this.baseURL+'userRoute/login',{
+      headers:{email,password}
+    })
+  }
+
 }

@@ -1,1 +1,40 @@
-<p>default works!</p>
+<div class="main-wrap">
+  <span>Robotikka</span>
+</div>
+
+<div class="product-context">
+
+  <div class="product-outer" *ngFor="let tempProduct of resultArray">
+    <div class="image-wrap">
+      <img src="{{tempProduct.image}}" alt="">
+    </div>
+    <div class="details-wrap">
+      <h2 class="product-Name">{{tempProduct.name}}</h2>
+      <p class="description">
+        {{tempProduct.description}}
+      </p>
+      <h1 class="cost">
+        <span class="price">
+          {{tempProduct.price}} LKR
+        </span>
+        &nbsp;&nbsp;&nbsp;
+
+        <span class="discount">
+          <del>
+            {{tempProduct.discount}} LKR
+          </del>
+        </span>
+
+      </h1>
+    </div>
+  </div>
+
+  <mat-paginator [length]="resultCount"
+                 [pageSize]="resultPageSize"
+                 [pageSizeOptions]="resultPageSizeOptions"
+                  (page)="resultPageEvent = getServerData($event)"
+  >
+  </mat-paginator>
+
+
+</div>

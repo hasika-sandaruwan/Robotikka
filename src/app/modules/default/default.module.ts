@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { DefaultRoutingModule } from './default-routing.module';
 import { DefaultComponent } from './default.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {HttpClientModule} from "@angular/common/http";
+import {CookieModule} from "ngx-cookie";
 
 
 @NgModule({
@@ -11,7 +14,10 @@ import { DefaultComponent } from './default.component';
   ],
   imports: [
     CommonModule,
-    DefaultRoutingModule
+    DefaultRoutingModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    CookieModule.forRoot()
   ]
 })
 export class DefaultModule { }

@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {CookieModule} from "ngx-cookie";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     ReactiveFormsModule,
     MatIconModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    CookieModule.forRoot()
   ]
 })
 export class AuthModule { }
